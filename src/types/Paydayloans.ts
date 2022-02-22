@@ -1,0 +1,45 @@
+export interface IPaydayloan {
+        firstname: string;
+        lastname: string;
+        phone: string;
+        DOB: string;
+        BVN: string;
+        Means_of_ID: 'Drivers Lincence',
+        date_issued: string;
+        ID_number: string;
+        expiry_date: string;
+        alt_number: string;
+        marital_status: number;
+        next_of_kin_surname: string;
+        next_of_kin_firstname: string;
+        next_of_kin_relationship: string;
+        next_of_kin_phone: string;
+        next_of_kin_address: string;
+        state: string;
+        landmark: string;
+        LGA_of_residence: string;
+        home_address: string;
+        employment_status: number;
+        current_employer: string;
+        current_employer_address: string;
+        current_employer_landmark: string;
+        current_employer_LGA: string;
+        current_employer_state: string;
+        current_employer_office_number: string;
+        staff_id: string;
+        department: string;
+        job_title: string;
+        date_employed: string;
+        previous_employer: string;
+        previous_employer_address: string;
+        jobs_in_past_5_years: number;
+        current_paydate: string;
+        existing_loan: number;
+        existing_loan_type: number;
+        loan_amount: number;
+        loan_tenure: number;
+        account_number: string;
+        account_name: string;
+        bank_name: string;
+        hear_about_us: string;
+}
