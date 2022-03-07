@@ -6,7 +6,7 @@ export default function Smeloanshistory() {
     <View style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ padding: 20 }}>
 
-        <View style={{ width: '100%', height: 150, backgroundColor: 'white'}}></View>
+        <View style={{ width: '100%', height: 150, backgroundColor: 'whitesmoke'}}></View>
 
       </ScrollView>
     </View>

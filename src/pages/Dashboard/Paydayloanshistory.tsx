@@ -1,10 +1,14 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
 
 export default function Paydayloanshistory() {
   return (
-    <View>
-      <Text>Paydayloanshistory</Text>
+    <View style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ padding: 20 }}>
+
+        <View style={{ width: '100%', height: 150, backgroundColor: 'whitesmoke'}}></View>
+
+      </ScrollView>
     </View>
   )
 }

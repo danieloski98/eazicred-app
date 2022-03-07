@@ -17,7 +17,7 @@ export default function Loans() {
       <Navbar />
       <Tab.Navigator 
       transitionStyle='scroll'
-      sceneContainerStyle={{ flex: 1, backgroundColor: 'whitesmoke', elevation: 0, padding: 0, height: 10 }} 
+      sceneContainerStyle={{ flex: 1, backgroundColor: 'white', elevation: 0, padding: 0, height: 10 }} 
       screenOptions={{
         tabBarLabelStyle: {color: 'white', fontSize: 16, fontFamily: theme.fonts.PoppinsSemiBold },
         tabBarStyle: {backgroundColor: theme.primaryColor, elevation: 0 },

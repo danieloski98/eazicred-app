@@ -1,3 +1,4 @@
+import { IPaydayloan } from "./Paydayloans";
 import { ISMELoans } from "./SMEloans";
 
 export interface IUser {
@@ -7,6 +8,6 @@ export interface IUser {
   token: string;
   phone: string;
   id: string;
-  SMEloans: ISMELoans[];
-  paydayloans: any[];
+  smeloans: ISMELoans[];
+  paydayloans: IPaydayloan[];
 }
