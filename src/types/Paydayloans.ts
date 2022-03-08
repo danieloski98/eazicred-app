@@ -42,4 +42,7 @@ export interface IPaydayloan {
         account_name: string;
         bank_name: string;
         hear_about_us: string;
+        created_at: string;
+        email: string;
+        status: number;
 }

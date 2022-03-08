@@ -6,11 +6,30 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Smeloanshistory from './Smeloanshistory'
 import Paydayloanshistory from './Paydayloanshistory'
 import {FontAwesome5} from '@expo/vector-icons'
+import { url } from '../../utils/url'
+import { IServerReturn } from '../../types/ApiReturnType'
+import { useRecoilState } from 'recoil'
+import { AgentAtom } from '../../states/agent'
+import { useQuery } from 'react-query'
 
 const { height: HEIGHT, width: WIDTH } = Dimensions.get('window');
 const Tab = createMaterialTopTabNavigator();
+const getDetails = async (email: string) => {
+  const request = await fetch(`${url}agent/${email}`);
+  const json = await request.json() as IServerReturn;
+  if (!request.ok) {
+    throw new  Error('An error occured')
+  }
+  return json;  
+}
 
 export default function Loans() {
+  const [agent, setAgent] = useRecoilState(AgentAtom);
+  const aa = useQuery(['getDetails', agent.email], () => getDetails(agent.email), {
+    onSuccess: (data) => {
+      setAgent(data.data);
+    }
+  })
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <StatusBar barStyle="light-content" translucent backgroundColor="transparent" />

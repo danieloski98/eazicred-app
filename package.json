@@ -22,6 +22,7 @@
     "expo-document-picker": "~10.1.3",
     "expo-font": "~10.0.4",
     "expo-status-bar": "~1.2.0",
+    "expo-updates": "~0.11.6",
     "formik": "^2.2.9",
     "moti": "^0.17.1",
     "react": "17.0.1",

@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Dashboard from '../pages/Dashboard';
 import SmeLoan from '../pages/Dashboard/SmeLoan';
 import Paydayloan from '../pages/Dashboard/Paydayloan';
+import About from '../pages/About';
 
 const StackNavigation = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ export default function index() {
             <StackNavigation.Screen name='dashboard' component={Dashboard} />
             <StackNavigation.Screen name="sme" component={SmeLoan} />
             <StackNavigation.Screen name="payday" component={Paydayloan} />
+            <StackNavigation.Screen name="about" component={About} />
         </StackNavigation.Navigator>
     </NavigationContainer>
   )
