@@ -203,21 +203,8 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
             )}
         </View>  
 
-        <View style={{ marginTop: 20 }}>
-            <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Alt. number</Text>
-            <Input 
-                  size="large" 
-                  keyboardType="email-address"
-                  onChangeText={handleChange('alt_number')}
-                  onBlur={handleBlur('alt_number')}
-                  onFocus={() => setFieldTouched('alt_number', true, true)}
-                  />
-                  {touched.alt_number && errors.alt_number && (
-                      <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.alt_number}</Text>
-            )}
-        </View>  
 
-        <View style={{ marginTop: 20 }}>
+        {/* <View style={{ marginTop: 20 }}>
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Date Employed</Text>
             <Datepicker 
                   size="large" 
@@ -231,9 +218,9 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
                   {touched.date_employed && errors.date_employed && (
                       <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.date_employed}</Text>
             )}
-        </View>  
+        </View>   */}
 
-
+{/* 
         <View style={{ marginTop: 20 }}>
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Previous Employer</Text>
             <Input 
@@ -247,10 +234,10 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
                   {touched.previous_employer && errors.previous_employer && (
                       <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.previous_employer}</Text>
             )}
-        </View> 
+        </View>  */}
   
 
-        <View style={{ marginTop: 20 }}>
+        {/* <View style={{ marginTop: 20 }}>
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Previous Employer Address</Text>
             <Input 
                   size="large" 
@@ -263,9 +250,9 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
                   {touched.previous_employer_address && errors.previous_employer_address && (
                       <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.previous_employer_address}</Text>
             )}
-        </View>  
+        </View>   */}
 
-        <View style={{ marginTop: 20 }}>
+        {/* <View style={{ marginTop: 20 }}>
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Jobs in the past 5 years</Text>
             <Input 
                   size="large" 
@@ -278,7 +265,7 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
                   {touched.jobs_in_past_5_years && errors.jobs_in_past_5_years && (
                       <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.jobs_in_past_5_years}</Text>
             )}
-        </View> 
+        </View>  */}
 
 
     </ScrollView>

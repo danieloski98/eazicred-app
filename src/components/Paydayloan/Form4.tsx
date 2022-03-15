@@ -41,7 +41,7 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
                   size="large" 
                   date={values.current_paydate as any}
                   min={new Date()}
-                  placeholder="Date of Birth"
+                  placeholder="Next date of payment"
                   onSelect={(date) => {setFieldValue('current_paydate', date, true)}}
                   onFocus={() => setFieldTouched('current_paydate', true, true)}
                   accessoryRight={<Feather name="calendar" color={theme.primaryColor} size={25} />}

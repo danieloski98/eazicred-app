@@ -18,6 +18,7 @@ import { useRecoilState } from 'recoil';
 import { AgentAtom } from '../../states/agent';
 import { url } from '../../utils/url';
 import { useNavigation } from '@react-navigation/native';
+import RequirementModal from '../../components/Paydayloan/RequirementModal';
 
 interface IFile {
     mimeType: string;
@@ -33,6 +34,7 @@ export default function Paydayloan() {
     const [errorText, setError] = useState("");
     const [showSnackbar, setShowSnackbar] = useState(false);
     const [showModal, setShowModal] = useState(true);
+    
     // files
     const [passport, setPassport] = useState(false);
     const [passportF, setPassportF] = useState({mimeType: '', name: '', type: '', uri: ''} as IFile);
@@ -104,6 +106,7 @@ export default function Paydayloan() {
         {
              ({ values,  handleBlur, handleChange, setFieldTouched, errors, touched, setFieldValue, dirty, isValid }) => (
                 <>
+                    <RequirementModal open={showModal} close={setShowModal} />
 
                     <StepperComponent handleChange={handleChange} handleBlur={handleBlur} setFieldTouched={setFieldTouched} values={values as any} errors={errors} touched={touched} setFieldValue={setFieldValue} pickFile={pickFile} passport={passport} govID={govID} letter={letter} statement={statement} utility={utility} company={company} showSnack={setShowSnackbar} setErrorText={setError} files={documents} dirty={dirty} isValid={isValid} passPortF={passportF} govIDF={govIDF} letterF={letterF} statementF={statementF} utilityF={utilityF} companyF={companyF} />
 
@@ -167,7 +170,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
     const move = () => {
         console.log(step);
         if (!dirty) {
-            setErrorText('Please fillin the form to continue');
+            setErrorText('Please fill in the form to continue');
             showSnack(true);
             console.log(dirty);
             return
@@ -189,7 +192,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                     errors.next_of_kin_relationship ||
                     errors.next_of_kin_phone ||
                     errors.next_of_kin_address) {
-                        setErrorText('Please fillin this section correctly to contiune');
+                        setErrorText('Please fill in this section correctly to contiune');
                         showSnack(true);
                         return;
                     } else {
@@ -200,7 +203,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
             }
             case 1: {
                 if (errors.state || errors.landmark || errors.LGA_of_residence || errors.home_address) {
-                        setErrorText('Please fillin this section correctly to contiune');
+                        setErrorText('Please fill in this section correctly to contiune');
                         showSnack(true);
                         return;
                     } else {
@@ -219,7 +222,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                     errors.department ||
                     errors.date_issued ||
                     errors.job_title) {
-                    setErrorText('Please fillin this section correctly to contiune');
+                    setErrorText('Please fill in this section correctly to contiune');
                     showSnack(true);
                     return;
                 } else {
@@ -235,7 +238,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                     errors.account_number ||
                     errors.account_name ||
                     errors.bank_name) {
-                    setErrorText('Please fillin this section correctly to contiune');
+                    setErrorText('Please fill in this section correctly to contiune');
                     showSnack(true);
                     return;
                 } else {
@@ -275,6 +278,8 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
           const existing_loan_type = values['existing_loan_type'];
     
           const date = new Date().toISOString();
+
+          console.log(values);
     
           const request1 = await fetch(`${url}user/createpaydayloan`, {
             method: 'post',
@@ -316,7 +321,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
     
             if (json2.statusCode === 200) {
               setShowModal(false);
-              Alert.alert('Error', json2.successMessage);
+              Alert.alert('Success', json2.successMessage);
               navigation.navigate('dashboard');
             //   localStorage.removeItem('formdata');
             //   data.resetForm();

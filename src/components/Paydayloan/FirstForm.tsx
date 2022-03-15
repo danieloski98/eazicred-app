@@ -19,7 +19,7 @@ interface IProps {
 
 export default function FirstForm({ handleChange, handleBlur, errors, values, setFieldTouched, touched, setFieldValue }: IProps) {
     const ids = [
-        `Driver's Lincence`,
+        `Driver's Licence`,
         `NIN card`,
         `Passport`,
         `Voters Card`,
@@ -36,7 +36,6 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
     <ScrollView style={{ paddingBottom: 50 }}>
       <View style={{ width: '100%', height: 100, alignItems: 'center', justifyContent: 'center',  }}>
         <Text style={{ fontFamily: theme.fonts.PoppinsSemiBold, fontSize: 20, color: theme.primaryColor }}>Personal Info</Text>
-        <Text style={{ fontFamily: theme.fonts.RobotoRegular, fontSize: 16, color: 'grey' }}>Enter the persons personal information</Text>
       </View>
 
         <View style={{ marginTop: 20 }}>
@@ -84,6 +83,22 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             )}
         </View>  
 
+
+        <View style={{ marginTop: 20 }}>
+            <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Alt. number</Text>
+            <Input 
+                  size="large" 
+                  keyboardType="email-address"
+                  onChangeText={handleChange('alt_number')}
+                  onBlur={handleBlur('alt_number')}
+                  onFocus={() => setFieldTouched('alt_number', true, true)}
+                  style={{ backgroundColor: 'whitesmoke'}}
+                  />
+                  {touched.alt_number && errors.alt_number && (
+                      <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.alt_number}</Text>
+            )}
+        </View>  
+
         <View style={{ marginTop: 20 }}>
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Email</Text>
             <Input 
@@ -105,8 +120,8 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Date of Birth</Text>
             <Datepicker 
                   size="large" 
-                  date={values.DOB}
-                  
+                  date={values.DOB as any}
+                  max={new Date()}
                   placeholder="Date of Birth"
                   onSelect={(date) => {setFieldValue('DOB', date, true)}}
                   onFocus={() => setFieldTouched('DOB', true, true)}
@@ -195,21 +210,6 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
                   />
                   {touched.date_issued && errors.date_issued && (
                       <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.date_issued}</Text>
-            )}
-        </View>  
-
-        <View style={{ marginTop: 20 }}>
-            <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Alt. number</Text>
-            <Input 
-                  size="large" 
-                  keyboardType="email-address"
-                  onChangeText={handleChange('alt_number')}
-                  onBlur={handleBlur('alt_number')}
-                  onFocus={() => setFieldTouched('alt_number', true, true)}
-                  style={{ backgroundColor: 'whitesmoke'}}
-                  />
-                  {touched.alt_number && errors.alt_number && (
-                      <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.alt_number}</Text>
             )}
         </View>  
 
