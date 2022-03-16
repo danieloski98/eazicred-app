@@ -5,6 +5,7 @@ import {QueryClientProvider, QueryClient} from 'react-query';
 import * as Fonts from 'expo-font';
 import {useCallback, useState, useEffect} from 'react';
 import {Layout, Spinner, Text} from '@ui-kitten/components'
+import 'react-native-url-polyfill/auto';
 
 // navigation Component
 import NavigationRoot from './src/navigation';

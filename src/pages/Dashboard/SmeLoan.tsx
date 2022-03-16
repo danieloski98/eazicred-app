@@ -45,37 +45,44 @@ export default function SmeLoan({navigation}: any) {
     });
 
     const submit = async () => {
-        if (!formik.dirty) {
-          Alert.alert('Warning', 'Please fillin the form to continue')
-        }else if(!formik.isValid) {
-          Alert.alert('Warning', 'You have to fill in the form correctly to create an SME loan');
-        }else {
-          // make request
-          setLoading(true);
-          const values = {...formik.values, agent_id:user.id, draft: false, type: 2};
-    
-          console.log(values);
-    
-          const request = await fetch(`${url}user/createSMEloan`, {
-            method: 'post',
-            headers: {
-              'content-type': 'application/json',
-              authorization: `Bearer ${user.token}`,
-            },
-            body: JSON.stringify(values)
-          });
-    
-          const json = await request.json() as IServerReturn;
-          setLoading(false);
-    
-          if (json.statusCode === 200) {
-              Alert.alert('Message', json.successMessage);
-              navigation.navigate('dashboard');
-            // await queryclient.invalidateQueries();
+        try {
+          if (!formik.dirty) {
+            Alert.alert('Warning', 'Please fillin the form to continue')
+          }else if(!formik.isValid) {
+            Alert.alert('Warning', 'You have to fill in the form correctly to create an SME loan');
           }else {
-            Alert.alert('Error', json.errorMessage);
+            // make request
+            setLoading(true);
+            const values = {...formik.values, agent_id:user.id, draft: false, type: 2 };
+      
+            console.log(values);
+      
+            const request = await fetch(`${url}user/createSMEloan`, {
+              method: 'post',
+              headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${user.token}`,
+              },
+              body: JSON.stringify({...values}),
+            });
+      
+            const json = await request.json() as IServerReturn;
+            console.log(json);
+            setLoading(false);
+      
+            if (json.statusCode === 200) {
+                Alert.alert('Message', json.successMessage);
+                navigation.navigate('dashboard');
+              // await queryclient.invalidateQueries();
+            }else {
+              Alert.alert('Error', json.errorMessage);
+            }
+      
           }
-    
+        } catch (error) {
+            setLoading(false);
+            Alert.alert('Error', 'An error occured');
+            console.log(error);
         }
       }
 

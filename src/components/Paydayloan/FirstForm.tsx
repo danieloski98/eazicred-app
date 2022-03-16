@@ -172,7 +172,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
                   size="large" 
                   date={values.date_issued}
                   
-                  placeholder="Date of Birth"
+                  placeholder="Date issued"
                   onSelect={(date) => {setFieldValue('date_issued', date, true)}}
                   onFocus={() => setFieldTouched('date_issued', true, true)}
                   accessoryRight={<Feather name="calendar" color={theme.primaryColor} size={25} />}
@@ -203,7 +203,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
                   size="large" 
                   date={values.expiry_date}
                   
-                  placeholder="Date of Birth"
+                  placeholder="Expiration Date"
                   onSelect={(date) => {setFieldValue('expiry_date', date, true)}}
                   onFocus={() => setFieldTouched('expiry_date', true, true)}
                   accessoryRight={<Feather name="calendar" color={theme.primaryColor} size={25} />}

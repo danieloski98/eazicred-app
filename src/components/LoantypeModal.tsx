@@ -29,6 +29,12 @@ export default function LoantypeModal({visible, changeVisibility}: IProps) {
             return;
         }
     };
+
+    React.useEffect(() => {
+        return () => {
+            setSelected(0);
+        }
+    }, []);
   return (
     <Modal animationType='slide' visible={visible} transparent>
         <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.452)', flex: 1, justifyContent: 'flex-end' }}>

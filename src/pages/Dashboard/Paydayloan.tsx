@@ -260,7 +260,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
 
 
     const submit = async () => {
-        if (files.length < 6) {
+        if (files.length < 5) {
             Alert.alert('Warning', 'You have to pick the required files to continue');
            return;
         }
@@ -268,78 +268,80 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
           Alert.alert('Warning', 'You have to fill in the form correctly to continue');
           return;
         }
-        else {
-    
-          setShowModal(true);
-    
-          const existing_loan = values['existing_loan'] === 1 ?true:false
-    
-    
-          const existing_loan_type = values['existing_loan_type'];
-    
-          const date = new Date().toISOString();
+        
+                setShowModal(true);
 
-          console.log(values);
-    
-          const request1 = await fetch(`${url}user/createpaydayloan`, {
-            method: 'post',
-            headers: {
-              'content-type': 'application/json',
-              authorization: `Bearer ${agent.token}`
-            },
-            body: JSON.stringify({...values, type: 1, status:1, draft: false, agent_id: agent.id, existing_loan, existing_loan_type, created_at: new Date(date).toDateString(), hear_about_us: 'Agent' }),
-          })
-    
-          const json1 = await request1.json() as IServerReturn;
-          console.log(json1);
+                // console.log(agent.token);
           
-          if (json1.statusCode === 200) {
-           try {
-            setText('Submitting Files...');
-            const formdata = new FormData();
-            console.log('ERRROR!!!!!');
-            formdata.append('HR_letter_of_confirmation', {uri: statementF.uri, name: statementF.name, type: statementF.mimeType} as any);
-            formdata.append('company_id', {uri: companyF.uri, name: companyF.name, type: companyF.mimeType} as any);
-            formdata.append('government_ID', {uri: govIDF.uri, name: govIDF.name, type: govIDF.mimeType} as any);
-            formdata.append('letter_of_employment', {uri: letterF.uri, name: letterF.name, type: letterF.mimeType} as any);
-            formdata.append('passport', {uri: passPortF.uri, name: passPortF.name, type: passPortF.mimeType} as any);
-            formdata.append('utility_bill', {uri: utilityF.uri, name: utilityF.name, type: utilityF.mimeType} as any);
-            console.log(files);
-           
-    
-    
-            const request2 = await fetch(`${url}user/uploadpaydayloanfiles/${json1.data.id}`, {
-              method: 'post',
-              headers: {
-                'content-type': 'multipart/form-data',
-                authorization: `Bearer ${agent.token}`,
-              },
-              body: formdata,
-            })
-    
-            const json2 = await request2.json() as IServerReturn;
-    
-            if (json2.statusCode === 200) {
-              setShowModal(false);
-              Alert.alert('Success', json2.successMessage);
-              navigation.navigate('dashboard');
-            //   localStorage.removeItem('formdata');
-            //   data.resetForm();
-            }else {
-                Alert.alert('Error', json2.errorMessage);
-            }
-           } catch (error) {
-               setShowModal(false);
-               console.log(error);
-           }
-    
-          }else {
-            setShowModal(false);
-            Alert.alert('Error', json1.errorMessage);
-            console.log(json1.errorMessage);
-          }
-    
-        }
+                const existing_loan = values['existing_loan'] === 1 ?true:false
+          
+          
+                const existing_loan_type = values['existing_loan_type'];
+          
+                const date = new Date().toISOString();
+      
+                // console.log(values);
+          
+                const request1 = await fetch(`${url}user/createpaydayloan`, {
+                  method: 'post',
+                  headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${agent.token}`
+                  },
+                  body: JSON.stringify({...values, type: 1, status:1, draft: false, agent_id: agent.id, existing_loan, existing_loan_type, created_at: new Date(date).toDateString(), hear_about_us: 'Agent' }),
+                })
+          
+                const json1 = await request1.json() as IServerReturn;
+                // console.log(json1);
+                
+                if (json1.statusCode === 200) {
+                  setText('Submitting Files...');
+                  const formdata = new FormData();
+                  formdata.append('HR_letter_of_confirmation', {name: statementF['name'], uri: statementF['uri'], type: statementF['mimeType']});
+                  formdata.append('company_id', {name: companyF['name'], uri: companyF['uri'], type: companyF['mimeType']});
+                  formdata.append('government_ID', {name: govIDF['name'], uri: govIDF['uri'], type: govIDF['mimeType']});
+                  //formdata.append('letter_of_employment', { name: letterF['name'], uri: letterF['uri'], type: letterF['mimeType']} );
+                  formdata.append('passport', {name: passPortF['name'], uri: passPortF['uri'], type: passPortF['mimeType']});
+                  formdata.append('utility_bill', { name: utilityF['name'], uri: utilityF['uri'], type: utilityF['mimeType']});
+                 
+                  try {
+                      console.log(formdata);
+                    const request2 = await fetch(`${url}user/uploadpaydayloanfiles/${json1.data.id}`, {
+                        method: 'post',
+                        headers: {
+                         'Content-Type': 'multipart/form-data',
+                          authorization: `Bearer ${agent.token}`,
+                        },
+                        body: formdata,
+                      })
+                      
+                      setShowModal(false);
+                      console.log(request2.status);
+              
+                      const json2 = await request2.json() as IServerReturn;
+              
+                      if (json2.statusCode === 200) {
+                        setShowModal(false);
+                        Alert.alert('Success', json2.successMessage);
+                        navigation.navigate('dashboard');
+                      //   localStorage.removeItem('formdata');
+                      //   data.resetForm();
+                      }else {
+                          Alert.alert('Error', json2.errorMessage);
+                          setShowModal(false);
+                      }
+                  } catch (error) {
+                      setShowModal(false);
+                      Alert.alert('an error occured');
+                  }
+                 
+          
+                }else {
+                  setShowModal(false);
+                  Alert.alert('Error', json1.errorMessage);
+                //   console.log(json1.errorMessage);
+                }
+
        }
 
     return (

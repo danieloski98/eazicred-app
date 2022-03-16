@@ -40,7 +40,7 @@ export const validationSchema = yup.object({
   jobs_in_past_5_years: yup.number(),
   // ending of form3
   current_paydate: yup.date().required('This field is required'),
-  existing_loan: yup.bool().required('This field is required'),
+  existing_loan: yup.number().required('This field is required'),
   existing_loan_type: yup.number(),
   loan_amount: yup.number().required('This field is required').max(500000, 'Cannot apply for an amount larger than NGN500000'),
   loan_tenure: yup.number().required('This field is required').max(6, 'Cannot be greater than 6 month'),

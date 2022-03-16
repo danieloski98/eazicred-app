@@ -22,7 +22,7 @@ export default function Settings() {
       <ScrollView>
 
           <View style={{ width: '100%', height: 300, backgroundColor: theme.primaryColor, padding: 20 }}>
-                <Text style={{ fontSize: 20, fontFamily: 'Inter-Bold', color:'white', marginTop: 20 }}>Settings</Text>
+                <Text style={{ fontSize: 20, fontFamily: theme.fonts.PoppinsBold, color:'white', marginTop: 20 }}>Settings</Text>
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                     <View style={{ width: 100, height: 100}}>
                         <Image source={{ uri: icon }} resizeMode="contain" style={{ width: '100%', height: '100%', borderRadius: 60 }} />

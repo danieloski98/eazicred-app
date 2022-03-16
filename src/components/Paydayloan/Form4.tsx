@@ -53,14 +53,17 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
 
         <View style={{ marginTop: 20 }}>
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Existing Loan</Text>
-            <Input 
-                  size="large" 
-                  keyboardType="email-address"
-                  value={values.existing_loan.toString()}
-                  onChangeText={handleChange('existing_loan')}
-                  onBlur={handleBlur('existing_loan')}
-                  onFocus={() => setFieldTouched('existing_loan', true, true)}
-                  />
+            <Picker
+                  selectedValue={values.existing_loan}
+                  onValueChange={(value) => {setFieldValue('existing_loan', value, true)}}
+                  style={{ width: '100%', height: 55, backgroundColor: 'whitesmoke', borderRadius: 5, borderWidth: 1, borderColor: 'grey', color: 'grey' }}
+                //   onChangeText={handleChange('Means_of_ID')}
+                  
+                  onFocus={() => setFieldTouched('employment_status', true, true)}
+            >
+                    <Picker.Item key={1} label="Yes" value={1} />
+                    <Picker.Item key={2} label="No" value={2} />
+            </Picker>
                   {touched.existing_loan && errors.existing_loan && (
                       <Text style={{ marginTop: 5, color: 'red', fontFamily: theme.fonts.RobotoRegular }}>{errors.existing_loan}</Text>
             )}
@@ -89,7 +92,7 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Loan amount applying for</Text>
             <Input 
                   size="large" 
-                  keyboardType="numbers-and-punctuation"
+                  keyboardType="number-pad"
                   value={values.loan_amount.toString()}
                   onChangeText={handleChange('loan_amount')}
                   onBlur={handleBlur('loan_amount')}
@@ -105,7 +108,7 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Loan Tenure</Text>
             <Input 
                   size="large" 
-                  keyboardType="email-address"
+                  keyboardType="number-pad"
                   value={values.loan_tenure.toString()}
                   onChangeText={handleChange('loan_tenure')}
                   onBlur={handleBlur('loan_tenure')}
@@ -120,7 +123,7 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Account Number</Text>
             <Input 
                   size="large" 
-                  keyboardType="email-address"
+                  keyboardType="number-pad"
                   value={values.account_number}
                   onChangeText={handleChange('account_number')}
                   onBlur={handleBlur('account_number')}
