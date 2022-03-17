@@ -16,6 +16,8 @@ interface IProps {
     setFieldTouched: Function;
     setFieldValue: Function;
 }
+const now = new Date();
+const MINDATE = new Date(now.getFullYear() - 200, now.getMonth(), now.getDate() - 2);
 
 export default function FirstForm({ handleChange, handleBlur, errors, values, setFieldTouched, touched, setFieldValue }: IProps) {
     const ids = [
@@ -32,6 +34,8 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
         `Seperated`,
         `Widowed`
     ];
+
+
   return (
     <ScrollView style={{ paddingBottom: 50 }}>
       <View style={{ width: '100%', height: 100, alignItems: 'center', justifyContent: 'center',  }}>
@@ -121,6 +125,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Datepicker 
                   size="large" 
                   date={values.DOB as any}
+                  min={MINDATE}
                   max={new Date()}
                   placeholder="Date of Birth"
                   onSelect={(date) => {setFieldValue('DOB', date, true)}}
@@ -171,7 +176,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Datepicker 
                   size="large" 
                   date={values.date_issued}
-                  
+                  min={MINDATE}
                   placeholder="Date issued"
                   onSelect={(date) => {setFieldValue('date_issued', date, true)}}
                   onFocus={() => setFieldTouched('date_issued', true, true)}
@@ -202,7 +207,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Datepicker 
                   size="large" 
                   date={values.expiry_date}
-                  
+                  min={MINDATE}
                   placeholder="Expiration Date"
                   onSelect={(date) => {setFieldValue('expiry_date', date, true)}}
                   onFocus={() => setFieldTouched('expiry_date', true, true)}
