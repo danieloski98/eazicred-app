@@ -4,9 +4,9 @@
     "slug": "eazicred",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/images/E1.png",
     "splash": {
-      "image": "./assets/images/logo.png",
+      "image": "./assets/images/E2.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
