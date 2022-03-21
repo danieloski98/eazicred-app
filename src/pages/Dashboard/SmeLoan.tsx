@@ -90,9 +90,9 @@ export default function SmeLoan({navigation}: any) {
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <Navbar />
 
-      <View style={{ width: '100%', height: '10%', backgroundColor: theme.primaryColor, paddingHorizontal: theme.majorPadding }}>
+      <View style={{ width: '100%', height: '11%', backgroundColor: theme.primaryColor, paddingHorizontal: theme.majorPadding }}>
           <Text style={{ fontFamily: theme.fonts.PoppinsSemiBold, color: 'white', fontSize: 22 }}>SME Loan Application</Text>
-          <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'whitesmoke', fontSize: 18 }}>Fill in the form to complete the loan application</Text>
+          <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'whitesmoke', fontSize: 16 }}>Fill in the form to complete the loan application</Text>
       </View>
 
       <View style={{ flex: 1 }}>

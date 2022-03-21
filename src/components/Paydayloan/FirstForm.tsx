@@ -94,6 +94,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
                   size="large" 
                   keyboardType="email-address"
                   onChangeText={handleChange('alt_number')}
+                  value={values.alt_number}
                   onBlur={handleBlur('alt_number')}
                   onFocus={() => setFieldTouched('alt_number', true, true)}
                   style={{ backgroundColor: 'whitesmoke'}}
@@ -243,6 +244,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Input 
                   size="large" 
                   keyboardType="email-address"
+                  value={values.next_of_kin_firstname}
                   onChangeText={handleChange('next_of_kin_firstname')}
                   onBlur={handleBlur('next_of_kin_firstname')}
                   onFocus={() => setFieldTouched('next_of_kin_firstname', true, true)}
@@ -257,6 +259,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Input 
                   size="large" 
                   keyboardType="email-address"
+                  value={values.next_of_kin_surname}
                   onChangeText={handleChange('next_of_kin_surname')}
                   onBlur={handleBlur('next_of_kin_surname')}
                   onFocus={() => setFieldTouched('next_of_kin_surname', true, true)}
@@ -271,6 +274,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Input 
                   size="large" 
                   keyboardType="email-address"
+                  value={values.next_of_kin_relationship}
                   onChangeText={handleChange('next_of_kin_relationship')}
                   onBlur={handleBlur('next_of_kin_relationship')}
                   onFocus={() => setFieldTouched('next_of_kin_relationship', true, true)}
@@ -285,6 +289,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Input 
                   size="large" 
                   keyboardType="email-address"
+                  value={values.next_of_kin_phone}
                   onChangeText={handleChange('next_of_kin_phone')}
                   onBlur={handleBlur('next_of_kin_phone')}
                   onFocus={() => setFieldTouched('next_of_kin_phone', true, true)}
@@ -299,6 +304,7 @@ export default function FirstForm({ handleChange, handleBlur, errors, values, se
             <Input 
                   size="large" 
                   keyboardType="email-address"
+                  value={values.next_of_kin_address}
                   onChangeText={handleChange('next_of_kin_address')}
                   onBlur={handleBlur('next_of_kin_address')}
                   onFocus={() => setFieldTouched('next_of_kin_address', true, true)}

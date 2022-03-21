@@ -38,7 +38,7 @@ export default function LoantypeModal({visible, changeVisibility}: IProps) {
   return (
     <Modal animationType='slide' visible={visible} transparent>
         <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.452)', flex: 1, justifyContent: 'flex-end' }}>
-            <View style={{ width: '100%', height: '65%', backgroundColor: 'white', borderTopLeftRadius: 10, borderTopRightRadius: 10, padding: theme.majorPadding }}>
+            <View style={{ width: '100%', height: '80%', backgroundColor: 'white', borderTopLeftRadius: 10, borderTopRightRadius: 10, padding: theme.majorPadding }}>
                 <View style={{ width: '100%', height: 25, alignItems: 'flex-end'}}>
                     <Feather onPress={() => changeVisibility(false)} size={25} color="grey" name="x-circle" />
                 </View>
@@ -51,7 +51,7 @@ export default function LoantypeModal({visible, changeVisibility}: IProps) {
                     </View>
 
                     <Text style={{ fontFamily: theme.fonts.PoppinsSemiBold, color: 'black', fontSize: 22 }}>PayDay Loan</Text>
-                    <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Are you a salary earner ? this is for you</Text>
+                    <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 16 }}>Are you a salary earner ? this is for you</Text>
                 </Pressable>
 
                 <Pressable onPress={() => setSelected(2)} style={[ styles.box, {borderColor: selected === 2 ? theme.primaryColor:'grey'}  ]}>
@@ -60,7 +60,7 @@ export default function LoantypeModal({visible, changeVisibility}: IProps) {
                     </View>
 
                     <Text style={{ fontFamily: theme.fonts.PoppinsSemiBold, color: 'black', fontSize: 22 }}>SME Loan</Text>
-                    <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Business expansion or contract financing? this is for you</Text>
+                    <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 16 }}>Business expansion or contract financing? this is for you</Text>
                 </Pressable>
 
                 <AnimatePresence>
@@ -93,7 +93,7 @@ export default function LoantypeModal({visible, changeVisibility}: IProps) {
 const styles = StyleSheet.create({
     box: {
         width: '100%',
-        height: '30%',
+        height: '22%',
         borderRadius: 5,
         borderWidth: 1,
         marginTop: 20,
