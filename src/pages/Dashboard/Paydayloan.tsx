@@ -260,7 +260,8 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
 
 
     const submit = async () => {
-        if (files.length < 5) {
+
+        if (files.length < 4) {
             Alert.alert('Warning', 'You have to pick the required files to continue');
            return;
         }
@@ -297,7 +298,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                 if (json1.statusCode === 200) {
                   setText('Submitting Files...');
                   const formdata = new FormData();
-                  formdata.append('HR_letter_of_confirmation', {name: statementF['name'], uri: statementF['uri'], type: statementF['mimeType']});
+                  //formdata.append('HR_letter_of_confirmation', {name: statementF['name'], uri: statementF['uri'], type: statementF['mimeType']});
                   formdata.append('company_id', {name: companyF['name'], uri: companyF['uri'], type: companyF['mimeType']});
                   formdata.append('government_ID', {name: govIDF['name'], uri: govIDF['uri'], type: govIDF['mimeType']});
                   //formdata.append('letter_of_employment', { name: letterF['name'], uri: letterF['uri'], type: letterF['mimeType']} );
@@ -305,7 +306,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                   formdata.append('utility_bill', { name: utilityF['name'], uri: utilityF['uri'], type: utilityF['mimeType']});
                  
                   try {
-                      console.log(formdata);
+                      console.log(agent.id);
                     const request2 = await fetch(`${url}user/uploadpaydayloanfiles/${json1.data.id}`, {
                         method: 'post',
                         headers: {

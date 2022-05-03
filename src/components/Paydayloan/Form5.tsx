@@ -47,14 +47,14 @@ export default function Form5({pickFile, passport, govID, letter, statement, uti
             </Pressable>
         </View> */}
 
-        <View style={{ marginTop: 20 }}>
+        {/* <View style={{ marginTop: 20 }}>
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>6 months bank statement</Text>
             <Pressable onPress={() => pickFile('statement')} style={{ width: '100%', height: 55, backgroundColor: statement ? theme.primaryColor:'grey', justifyContent: 'center', alignItems: 'center', borderRadius: 5 }}>
                 <Text style={{ fontFamily: theme.fonts.PoppinsSemiBold, fontSize: 16, color: 'white' }}>
                     {statement ? 'File Picked':'Pick File'}
                 </Text>
             </Pressable>
-        </View>
+        </View> */}
 
         <View style={{ marginTop: 20 }}>
             <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Utility bill</Text>
