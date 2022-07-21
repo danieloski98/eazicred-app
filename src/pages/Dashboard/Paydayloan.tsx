@@ -59,7 +59,7 @@ export default function Paydayloan() {
         if (doc.type === 'cancel') {
             Alert.alert('Message', 'Action cancelled');
         } else {
-            console.log(doc);
+           
             setDocument(prev => [...prev, doc]);
             switch(file) {
                 case 'passport': {
@@ -168,11 +168,11 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
     ];
 
     const move = () => {
-        console.log(step);
+      
         if (!dirty) {
             setErrorText('Please fill in the form to continue');
             showSnack(true);
-            console.log(dirty);
+            
             return
         }
         switch(step){
@@ -196,7 +196,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                         showSnack(true);
                         return;
                     } else {
-                        console.log(errors);
+                        
                         setStep(prev => prev + 1);
                         return;
                     }
@@ -272,7 +272,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
         
                 setShowModal(true);
 
-                // console.log(agent.token);
+               
           
                 const existing_loan = values['existing_loan'] === 1 ?true:false
           
@@ -281,7 +281,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
           
                 const date = new Date().toISOString();
       
-                // console.log(values);
+                
           
                 const request1 = await fetch(`${url}user/createpaydayloan`, {
                   method: 'post',
@@ -293,7 +293,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                 })
           
                 const json1 = await request1.json() as IServerReturn;
-                // console.log(json1);
+              
                 
                 if (json1.statusCode === 200) {
                   setText('Submitting Files...');
@@ -306,7 +306,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                   formdata.append('utility_bill', { name: utilityF['name'], uri: utilityF['uri'], type: utilityF['mimeType']});
                  
                   try {
-                      console.log(agent.id);
+                      
                     const request2 = await fetch(`${url}user/uploadpaydayloanfiles/${json1.data.id}`, {
                         method: 'post',
                         headers: {
@@ -317,7 +317,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                       })
                       
                       setShowModal(false);
-                      console.log(request2.status);
+                      
               
                       const json2 = await request2.json() as IServerReturn;
               
@@ -340,7 +340,7 @@ const StepperComponent = ({ handleChange, handleBlur, errors, values, setFieldTo
                 }else {
                   setShowModal(false);
                   Alert.alert('Error', json1.errorMessage);
-                //   console.log(json1.errorMessage);
+                
                 }
 
        }

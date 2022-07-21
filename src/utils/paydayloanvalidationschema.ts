@@ -43,7 +43,7 @@ export const validationSchema = yup.object({
   existing_loan: yup.number().required('This field is required'),
   existing_loan_type: yup.number(),
   loan_amount: yup.number().required('This field is required').max(500000, 'Cannot apply for an amount larger than NGN500000'),
-  loan_tenure: yup.number().required('This field is required').max(6, 'Cannot be greater than 6 month'),
+  loan_tenure: yup.number().required('This field is required').max(12, 'Cannot be greater than 6 month'),
   account_number: yup.string().required('This field is required'),
   account_name: yup.string().required('This field is required'),
   bank_name: yup.string().required('This field is required'),

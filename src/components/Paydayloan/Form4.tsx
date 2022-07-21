@@ -105,7 +105,7 @@ export default function Form3({ handleChange, handleBlur, errors, values, setFie
 
 
         <View style={{ marginTop: 20 }}>
-            <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Loan Tenure</Text>
+            <Text style={{ fontFamily: theme.fonts.RobotoRegular, color: 'grey', fontSize: 18 }}>Loan Tenure in months (max 12 months)</Text>
             <Input 
                   size="large" 
                   keyboardType="number-pad"
